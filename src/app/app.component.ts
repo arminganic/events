@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { EventComponent } from './event/event.component';
+import { EventService } from '../shared/services/event.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,7 @@ import { EventComponent } from './event/event.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'events';
+  private readonly eventService = inject(EventService);
+
+  protected readonly events = this.eventService.getEvents();
 }

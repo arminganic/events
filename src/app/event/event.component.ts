@@ -1,18 +1,18 @@
-import { Component, Input, computed, input } from '@angular/core';
-import { ReplaySubject, map } from 'rxjs';
+import { DatePipe } from '@angular/common';
+import { Component, computed, input } from '@angular/core';
+import { EventDto } from '../../shared/dtos/event.dto';
 
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './event.component.html',
   styleUrl: './event.component.css',
 })
 export class EventComponent {
-  public event = input.required<Event>();
-  protected eventName = computed(() => this.event().name);
-}
+  public readonly event = input.required<EventDto>();
 
-interface Event {
-  name: string;
+  protected readonly name = computed(() => this.event().name);
+  protected readonly location = computed(() => this.event().location);
+  protected readonly date = computed(() => this.event().date);
 }

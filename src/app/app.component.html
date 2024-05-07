@@ -1,1 +1,3 @@
-<app-event [event]="{ name: 'CES' }" />
+@for (event of events(); track event) {
+<app-event [event]="event" />
+}
