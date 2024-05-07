@@ -1,8 +1,8 @@
-import { EventDto } from './event.dto';
+import { SimpleEventDto } from './event.dto';
 
 export interface ContactDto {
   id: string;
-  event: EventDto;
+  event: SimpleEventDto;
   email: string;
   firstname: string;
   lastname: string;

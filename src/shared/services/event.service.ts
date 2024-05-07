@@ -1,50 +1,28 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, inject } from '@angular/core';
 import { EventDto } from '../dtos/event.dto';
+import { EventRepository } from '../repositories/event.repository';
 
 @Injectable({ providedIn: 'root' })
 export class EventService {
-  private readonly events = signal<EventDto[]>([
-    {
-      id: '1',
-      name: 'CES',
-      location: 'Las Vegas Convention Center',
-      date: new Date(),
-      contacts: 5,
-    },
-    {
-      id: '2',
-      name: 'WWDC',
-      location: 'Apple Park',
-      date: new Date(),
-      contacts: 5,
-    },
-    {
-      id: '3',
-      name: 'Google I/O',
-      location: 'Shoreline Amphitheatre',
-      date: new Date(),
-      contacts: 5,
-    },
-    {
-      id: '4',
-      name: 'Samsung Unpacked',
-      location: 'San Jose',
-      date: new Date(),
-      contacts: 5,
-    },
-  ]);
+  private readonly eventRepository = inject(EventRepository);
 
-  getEvents() {
-    return computed(() => this.events());
+  getSimpleEvents() {
+    return this.eventRepository.simpleEvents;
   }
 
   getEventById(id: string) {
     return computed(() => {
-      const event = this.events().find((event) => event.id === id);
+      const event = this.eventRepository
+        .events()
+        .find((event) => event.id === id);
       if (!event) {
         throw 'Event not found';
       }
       return event;
     });
+  }
+
+  addEvent(event: EventDto) {
+    this.eventRepository.addEvent(event);
   }
 }

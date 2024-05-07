@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
-import { EventDto } from '../../shared/dtos/event.dto';
+import { SimpleEventDto } from '../../shared/dtos/event.dto';
 
 @Component({
   selector: 'app-event',
@@ -10,7 +10,7 @@ import { EventDto } from '../../shared/dtos/event.dto';
   styleUrl: './event.component.css',
 })
 export class EventComponent {
-  public readonly event = input.required<EventDto>();
+  public readonly event = input.required<SimpleEventDto>();
 
   protected readonly name = computed(() => this.event().name);
   protected readonly location = computed(() => this.event().location);

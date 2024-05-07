@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EventComponent } from './event/event.component';
 import { EventService } from '../shared/services/event.service';
+import { EventComponent } from './event/event.component';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +13,15 @@ import { EventService } from '../shared/services/event.service';
 export class AppComponent {
   private readonly eventService = inject(EventService);
 
-  protected readonly events = this.eventService.getEvents();
+  protected readonly events = this.eventService.getSimpleEvents();
+
+  onAddEventClicked() {
+    this.eventService.addEvent({
+      id: '-1',
+      contacts: [],
+      date: new Date(),
+      location: 'Las Testas',
+      name: 'Test',
+    });
+  }
 }
