@@ -15,4 +15,5 @@ export class EventComponent {
   protected readonly name = computed(() => this.event().name);
   protected readonly location = computed(() => this.event().location);
   protected readonly date = computed(() => this.event().date);
+  protected readonly contacts = computed(() => this.event().contacts);
 }

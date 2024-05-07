@@ -1,5 +1,7 @@
 export interface EventDto {
-  name: string;
-  location: string;
+  id: string;
+  contacts: number;
   date: Date;
+  location: string;
+  name: string;
 }
