@@ -1,4 +1,8 @@
-<h3>{{ name() }}</h3>
-<p>{{ location() }}</p>
-<p>{{ date() | date : "mediumDate" }}</p>
-<p>{{ contacts() }}</p>
+<a [routerLink]="['/events', id()]">
+  <div class="event">
+    <h3>{{ name() }}</h3>
+    <p>{{ location() }}</p>
+    <p>{{ date() | date : "mediumDate" }}</p>
+    <p>{{ contacts() }}</p>
+  </div>
+</a>

@@ -6,13 +6,13 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SimpleEventDto } from '../../shared/dtos/event.dto';
 
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink],
   templateUrl: './event.component.html',
   styleUrl: './event.component.css',
 })
@@ -21,6 +21,7 @@ export class EventComponent {
 
   public readonly event = input.required<SimpleEventDto>();
 
+  protected readonly id = computed(() => this.event().id);
   protected readonly name = computed(() => this.event().name);
   protected readonly location = computed(() => this.event().location);
   protected readonly date = computed(() => this.event().date);
