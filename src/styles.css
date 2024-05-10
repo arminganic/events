@@ -20,14 +20,6 @@
   padding: 0;
 }
 
-.container {
-  max-width: 1440px;
-}
-
-.container--centered {
-  margin-inline: auto;
-}
-
 a {
   text-decoration: none;
 }
@@ -37,4 +29,12 @@ button {
   border-radius: var(--radius-m);
   cursor: pointer;
   padding: var(--spacing-s) var(--spacing-l);
+}
+
+.container {
+  max-width: 1440px;
+}
+
+.container--centered {
+  margin-inline: auto;
 }

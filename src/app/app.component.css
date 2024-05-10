@@ -1,0 +1,40 @@
+:host {
+  display: grid;
+  grid-template-areas: "nav" "main";
+}
+
+main {
+  grid-area: main;
+}
+
+nav {
+  background-color: burlywood;
+  grid-area: nav;
+}
+
+@media screen and (max-width: 599px) {
+  /* Mobile only */
+  nav {
+    align-items: center;
+    display: flex;
+    height: 56px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  /* Tablet */
+  :host {
+    grid-template-areas: "nav main";
+    grid-template-columns: 240px 1fr;
+    height: 100svh;
+    height: 100vh;
+  }
+
+  main {
+    overflow: auto;
+  }
+
+  nav {
+    overflow: auto;
+  }
+}
