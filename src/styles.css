@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-  --spacing-s: 8px;
+  --radius-s: 2px;
+  --radius-m: 4px;
+  --radius-l: 8px;
+
+  --spacing-xs: 8px;
+  --spacing-s: 12px;
   --spacing-m: 16px;
   --spacing-l: 24px;
 
@@ -20,4 +25,15 @@
 
 .container--centered {
   margin-inline: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  padding: var(--spacing-s) var(--spacing-l);
 }
