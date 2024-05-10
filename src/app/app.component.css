@@ -14,10 +14,16 @@ nav {
 
 @media screen and (max-width: 599px) {
   /* Mobile only */
+  :host {
+    position: relative;
+  }
+
   nav {
     align-items: center;
     display: flex;
     height: 56px;
+    position: sticky;
+    top: 0;
   }
 }
 
