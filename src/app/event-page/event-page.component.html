@@ -1,1 +1,10 @@
-<p>event-page works!</p>
+@if (event(); as event) {
+<h1>{{ event.name }}</h1>
+<section>
+  @if (event.contacts.length) { @for (contact of contacts(); track contact) {
+  <p>{{ contact.firstname }} {{ contact.lastname }}</p>
+  } } @else {
+  <p>No contacts.</p>
+  }
+</section>
+}
