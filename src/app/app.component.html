@@ -1,6 +1,19 @@
-<nav>
-  <p>nav-bar works!</p>
+@if (isMenuOpen()) {
+<div class="backdrop" (click)="onBackdropClicked()"></div>
+}
+<nav class="nav" [class.nav--open]="isMenuOpen()">
+  <p>Logo</p>
+  <ul class="nav__items">
+    <li class="nav__item">Startseite</li>
+    <li class="nav__item">Events</li>
+    <li class="nav__item">Kontakte</li>
+  </ul>
 </nav>
 <main>
-  <router-outlet />
+  <div class="app-bar">
+    <button (click)="onOpenClicked()">Open</button>
+  </div>
+  <div class="content">
+    <router-outlet />
+  </div>
 </main>

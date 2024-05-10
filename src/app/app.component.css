@@ -1,27 +1,69 @@
 :host {
   display: grid;
-  grid-template-areas: "nav" "main";
+  height: 100svh;
+  height: 100vh;
 }
 
 main {
   grid-area: main;
 }
 
-nav {
+.nav {
   background-color: burlywood;
   grid-area: nav;
+}
+
+.nav__items {
+  overflow: auto;
+}
+
+.nav__item {
+  list-style-type: none;
+}
+
+.backdrop {
+  display: none;
+}
+
+.content {
+  padding: var(--spacing-xs);
 }
 
 @media screen and (max-width: 599px) {
   /* Mobile only */
   :host {
+    grid-template-areas: "main";
     position: relative;
   }
 
-  nav {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 240px;
+    transform: translateX(-100%);
+    z-index: 5;
+  }
+
+  .nav--open {
+    transform: translateX(0%);
+  }
+
+  .backdrop {
+    background-color: rgba(0 0 0 / 0.5);
+    display: block;
+    inset: 0;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .app-bar {
     align-items: center;
+    background-color: burlywood;
     display: flex;
     height: 56px;
+    padding: var(--spacing-xs);
     position: sticky;
     top: 0;
   }
@@ -32,15 +74,13 @@ nav {
   :host {
     grid-template-areas: "nav main";
     grid-template-columns: 240px 1fr;
-    height: 100svh;
-    height: 100vh;
   }
 
   main {
     overflow: auto;
   }
 
-  nav {
-    overflow: auto;
+  .app-bar {
+    display: none;
   }
 }
